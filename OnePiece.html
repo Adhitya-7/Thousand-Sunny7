@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Piece World</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #0b1c2f, #000);
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #111;
+      border-bottom: 2px solid #444;
+    }
+    header h1 { font-size: 1.8rem; }
+    nav button {
+      background: none;
+      border: 1px solid #888;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    nav button:hover { background-color: #222; }
+    main { padding: 2rem; }
+    .section { display: none; }
+    .active { display: block; }
+    .grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 1rem;
+      flex: 1 1 200px;
+      text-align: center;
+    }
+    .card img { width: 100px; border-radius: 50%; margin-bottom: 0.5rem; }
+    .button-game {
+      background-color: #f5c518;
+      color: black;
+      font-weight: bold;
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .button-game:hover { background-color: #e5b010; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>☠️ One Piece World</h1>
+  <nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('crew')">Crew</button>
+    <button onclick="showSection('episodes')">Episodes</button>
+    <button onclick="showSection('game')">Mini Game</button>
+  </nav>
+</header>
+
+<main>
+  <!-- Home Section -->
+  <div id="home" class="section active">
+    <h2>Welcome to the Grand Line!</h2>
+    <p>Explore the adventures of the Straw Hat Pirates, meet the crew, relive the episodes, and even play a mini-game!</p>
+  </div>
+
+  <!-- Crew Section -->
+  <div id="crew" class="section">
+    <h2>Meet the Crew</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://i.imgur.com/7yUVEFL.png" alt="Luffy">
+        <h3>Luffy</h3>
+        <p>Captain</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/bYM3Kq3.png" alt="Zoro">
+        <h3>Zoro</h3>
+        <p>Swordsman</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/cI6NOvF.png" alt="Nami">
+        <h3>Nami</h3>
+        <p>Navigator</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Episodes Section -->
+  <div id="episodes" class="section">
+    <h2>Famous Episodes</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Romance Dawn</h3>
+        <p>Luffy sets out to become King of the Pirates!</p>
+      </div>
+      <div class="card">
+        <h3>Enter Zoro</h3>
+        <p>The swordsman joins the crew.</p>
+      </div>
+      <div class="card">
+        <h3>Nami's Map</h3>
+        <p>The navigator's skills shine.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mini Game Section -->
+  <div id="game" class="section">
+    <h2>🎮 Mini Game: Search for One Piece</h2>
+    <p>Click the button and see if you find the treasure!</p>
+    <button class="button-game" onclick="searchTreasure()">Search Treasure</button>
+    <p id="game-result" style="margin-top: 1rem; font-weight: bold;"></p>
+  </div>
+</main>
+
+<script>
+  function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+  }
+
+  function searchTreasure() {
+    const found = Math.random() > 0.7;
+    const result = document.getElementById('game-result');
+    result.textContent = found ? "You found One Piece! ☠️🏴‍☠️" : "Keep searching, nakama!";
+  }
+</script>
+
+</body>
+</html>
