@@ -4,7 +4,7 @@ def greet(name):
 
 def add_numbers(a, b):
     """Add two numbers and return the result."""
-    return a + b
+    return a - b
 
 if __name__ == "__main__":
     print(greet("World"))
